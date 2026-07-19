@@ -1,7 +1,13 @@
-print("enter  your name ")
-name=(input())
+import schedule
+import time
 
-print ("enter your age")
-age=int(input())
+def job():
+    print("Task executed!")
 
-print("Hello",name,"you will get ",age+1,"next year")
+schedule.every(5).seconds.do(job)
+
+print("Scheduler started...")
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
